@@ -1,0 +1,511 @@
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&family=Parisienne&family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif; /* Default font */
+    text-align: center;
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    transition: background 0.5s ease-in-out;
+}
+
+/* 💌 Letter Container */
+.letter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 78vh;
+    text-align: center;
+    position: relative;
+}
+
+/* Closed Letter */
+.letter {
+    width: 220px;
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Hover Effect on Letter */
+.letter:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0px 0px 10px rgba(255, 0, 102, 0.8));
+}
+
+.letter-content {
+    display: none; /* Hide initially */
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.letter-content.show {
+    display: block; /* Ensure it becomes visible */
+    transform: scale(1);
+    opacity: 1;
+}
+
+.valentine-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff3366;
+}
+
+/* 🎉 Confetti Container */
+.particle-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 100;
+}
+
+/* 🎊 Confetti Particles */
+.particle {
+    position: absolute;
+    opacity: 1;
+    animation: firework 1.5s ease-out forwards;
+    font-size: 20px;
+}
+
+/* 🎇 Firework Burst Animation */
+@keyframes firework {
+    from {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: translate(var(--endX), var(--endY)) scale(0.8);
+        opacity: 0;
+    }
+}
+
+/* Buttons */
+/* Romantic Font for Buttons */
+button {
+    font-family: 'Poppins', sans-serif;
+    padding: 12px 20px;
+    margin: 5px;
+    border: none;
+    background: #ff3366;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+/* 💖 Button Container - Centers & Spaces Buttons Side-by-Side */
+/* 💖 Button Container - Centers & Spaces Buttons Side-by-Side */
+.buttons {
+    display: flex;
+    justify-content: center; /* Centers buttons horizontally */
+    align-items: center;
+    gap: 40px; /* Space between buttons */
+    margin-top: 20px;
+}
+
+/* ❤️ Yes Button - Fixed Position */
+#yesBtn {
+    background: #ff3366;
+    padding: 12px 24px;
+    font-size: 18px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* ❌ No Button - Moves Dynamically */
+#noBtn {
+    background: #ff3366;
+    padding: 12px 24px;
+    font-size: 18px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+    position: relative; /* Prevents overlap */
+}
+
+button#yesBtn:hover {
+    background: #ff0066;
+    transform: scale(1.1);
+}
+
+button#noBtn:hover {
+    background: gray;
+}
+
+/* Surprise Box Page */
+.page2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.valentine-text {
+    font-family: 'Parisienne', cursive;
+    font-size: 32px;
+    color: #ff3366; /* Romantic red-pink color */
+    text-shadow: 2px 2px 10px rgba(255, 0, 102, 0.5); /* Glow effect */
+}
+
+.valentine-message {
+    font-size: 24px;
+    font-family: 'Parisienne', cursive;
+    color: rgb(192, 10, 10);
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 10px rgba(255, 0, 102, 0.5); /* Glow effect */
+}
+
+/* Gift Box */
+.gift-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.gift-box {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;  /* Ensure it's clickable */
+    width: 220px;
+    height: 220px;
+    z-index: 10; /* Make sure it's above everything */
+    border: 2px solid red; /* Debugging border */
+    background-color: rgba(0, 255, 0, 0.2); /* Debugging background */
+}
+
+/* 💌 Click to Open Text */
+.click-text {
+    font-size: 35px;
+    font-family: 'Parisienne', cursive;
+    color: #ff3366;
+    text-shadow: 0px 0px 10px rgba(255, 0, 102, 0.7);
+    text-align: center;
+    margin-bottom: 10px;
+    animation: pulse 1.5s infinite alternate;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Smooth Pulse Animation */
+@keyframes pulse {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+/* Hide Click Text After Letter Opens */
+.click-text.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.box {
+    width: 200px;
+    position: absolute;
+    transition: transform 0.5s ease-in-out;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Coupons Overlay (Darkens Background Around Cards) */
+.coupons-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Slight fade effect */
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+}
+
+/* Show overlay when coupons appear */
+.coupons-overlay.show {
+    display: flex;
+}
+
+/* Coupons Container (Stacked Vertically for Mobile) */
+.coupons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Ensure proper spacing */
+    align-items: center;
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    z-index: 100;
+}
+
+/* Show coupons properly */
+.coupons-container.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Coupon Design */
+.coupon {
+    width: 200px; /* Fixed width */
+    height: 100px; /* Fixed height */
+    background: #ff85a2; /* Pink color */
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0px 8px 15px rgba(255, 0, 102, 0.5);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 101;
+}
+
+/* Question Mark Initially Visible */
+.valentine-text, .coupon span {
+    font-family: 'Parisienne', cursive;
+    font-size: 36px;
+    font-weight: bold;
+    color: rgb(252, 44, 44);
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* When Revealed, Show Actual Text */
+.coupon.revealed {
+    background: rgb(237, 188, 146); /* White Background */
+    color: #ff3366; /* Text Color */
+}
+
+/* Ensure the Text Appears Correctly */
+.coupon.revealed span {
+    color: #ff3366; /* Red Text */
+    font-size: 24px;
+}
+
+/* Back Button at Bottom */
+#backButton {
+    padding: 12px 20px;
+    margin-top: 30px;
+    font-size: 18px;
+    border: none;
+    background: #ff3366;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+    display: none;
+    position: absolute;
+    bottom: 20px;
+    z-index: 102;
+}
+
+#backButton.show {
+    display: block;
+}
+
+.content-box {
+    background: rgb(250, 155, 197);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    margin: 50px auto;
+    overflow-y: auto;
+    text-align: center;
+    position: relative;
+}
+
+.dark-background {
+    background: rgba(0, 0, 0, 0.7);
+    transition: background 0.5s ease-in-out;
+}
+
+/* Special Gift Button */
+.special-btn {
+    padding: 12px 20px;
+    font-size: 18px;
+    border: none;
+    background: #ff6699;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+    display: block;
+    margin: 10px auto;
+}
+
+.special-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Special Gift Section */
+#specialGiftSection {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Engagement Ring Image */
+.ring-img {
+    width: 200px;
+    margin: 20px auto;
+    animation: pulse 1.5s infinite alternate;
+}
+
+/* Smooth Pulse Animation for the Ring */
+@keyframes pulse {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
+
+/* Back Button */
+.back-btn {
+    padding: 12px 20px;
+    font-size: 18px;
+    border: none;
+    background: #ff3366;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+    display: block;
+    margin-top: 15px;
+}
+
+/* Thank You Page Styling */
+.thank-you-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    color: white;
+}
+
+.thank-you-text {
+    font-family: 'Parisienne', cursive;
+    font-size: 40px;
+    text-shadow: 2px 2px 10px rgba(255, 0, 102, 0.5);
+}
+
+.thank-you-message {
+    font-size: 22px;
+    margin-top: 10px;
+}
+
+/* Floating Hearts Animation */
+.floating-hearts {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 15px;
+    animation: floatHearts 3s infinite alternate ease-in-out;
+}
+
+.heart {
+    font-size: 30px;
+    animation: heartFloat 2s infinite alternate ease-in-out;
+}
+
+@keyframes heartFloat {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(-15px);
+    }
+}
+
+/* Home Button */
+.home-btn {
+    padding: 12px 20px;
+    font-size: 18px;
+    border: none;
+    background: #ff3366;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+    margin-top: 20px;
+}
+
+.home-btn:hover {
+    transform: scale(1.1);
+}
+
+/* 🎈 Floating Container */
+.floating-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 50;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Show Floating Elements When Activated */
+.floating-container.show {
+    opacity: 1;
+}
+
+/* 🎈 Floating Items */
+.floating-item {
+    position: absolute;
+    font-size: 30px;
+    opacity: 1;
+    animation: floatUp 5s linear infinite;
+}
+
+/* 🎈 Floating Animation */
+@keyframes floatUp {
+    from {
+        transform: translateY(100vh) scale(0.8);
+        opacity: 0.8;
+    }
+    to {
+        transform: translateY(-10vh) scale(1);
+        opacity: 0;
+    }
+}

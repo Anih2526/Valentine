@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <!-- Floating Elements Container (For Balloons, Hearts, Flowers) -->
+    <div class="floating-container"></div>
+
+    <div class="content-box">
+        <div class="page1">
+            <div class="letter-container">
+                <!-- Click to Open Text -->
+                <p id="clickToOpen" class="click-text">💌 Click to Open 💌</p>
+
+                <!-- Closed Letter -->
+                <img src="images/closed-letter.png" id="closedLetter" class="letter" alt="Closed Letter">
+                
+                <!-- Opened Letter Content -->
+                <div class="letter-content hidden" id="letterContent">
+                    <p class="valentine-text">Will You Be My Valentine? 💖</p>
+                    <img src="images/teddy-sad.gif" id="teddy" class="teddy" alt="Sad Teddy">
+                    <div class="buttons">
+                        <button id="yesBtn">Yes 💘</button>
+                        <button id="noBtn">No 😢</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
